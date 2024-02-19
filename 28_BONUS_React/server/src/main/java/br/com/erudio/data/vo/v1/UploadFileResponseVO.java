@@ -2,17 +2,16 @@ package br.com.erudio.data.vo.v1;
 
 import java.io.Serializable;
 
-public class UploadFileResponseVO implements Serializable{
- 
+public class UploadFileResponseVO implements Serializable {
+
 	private static final long serialVersionUID = 1L;
 
 	private String fileName;
 	private String fileDownloadUri;
 	private String fileType;
 	private long size;
-	
-	public UploadFileResponseVO() {
-	}
+
+	public UploadFileResponseVO() {}
 
 	public UploadFileResponseVO(String fileName, String fileDownloadUri, String fileType, long size) {
 		this.fileName = fileName;
@@ -21,8 +20,6 @@ public class UploadFileResponseVO implements Serializable{
 		this.size = size;
 	}
 
-
-
 	public String getFileName() {
 		return fileName;
 	}
@@ -30,7 +27,6 @@ public class UploadFileResponseVO implements Serializable{
 	public void setFileName(String fileName) {
 		this.fileName = fileName;
 	}
-
 	public String getFileDownloadUri() {
 		return fileDownloadUri;
 	}
