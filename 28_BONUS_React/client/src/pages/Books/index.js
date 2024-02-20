@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Link, useHistory } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { FiPower, FiEdit, FiTrash2 } from 'react-icons/fi'
 
 import api from '../../services/api'
@@ -11,21 +11,21 @@ import logoImage from '../../assets/logo.svg'
 export default function Books(){
 
     const [books, setBooks] = useState([]);
-    const [page, setPage] = useState(1);
+    const [page, setPage] = useState(0);
     
     const username = localStorage.getItem('username');
     const accessToken = localStorage.getItem('accessToken');
 
-    const history = useHistory();
+    const navigate = useNavigate();
 
     async function logout() {
         localStorage.clear();
-        history.push('/');
+        navigate('/');
     }
 
     async function editBook(id) {
         try {
-            history.push(`book/new/${id}`)
+            navigate(`/book/new/${id}`)
         } catch (error) {
             alert('Edit failed! Try again.');
         }
@@ -51,13 +51,18 @@ export default function Books(){
             },
             params: {
                 page: page,
-                limit: 4,
+                size: 4,
                 direction: 'asc'
             }
         });
-
-        console.log(response.data)    
-        setBooks([ ...books, ...response.data._embedded.bookVOList])
+         
+        try {
+            setBooks([ ...books, ...response.data._embedded.bookVOList]) 
+            console.log(response.data)
+            console.log(books.length)           
+        } catch (error) {
+            console.log(response.data)
+        }  
         setPage(page + 1);
     }
 
@@ -70,7 +75,7 @@ export default function Books(){
             <header>
                 <img src={logoImage} alt="Erudio"/>
                 <span>Welcome, <strong>{username.toUpperCase()}</strong>!</span>
-                <Link className="button" to="book/new/0">Add New Book</Link>
+                <Link className="button" to="/book/new/0">Add New Book</Link>
                 <button onClick={logout} type="button">
                     <FiPower size={18} color="#251FC5" />
                 </button>
