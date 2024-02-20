@@ -25,9 +25,16 @@ export default function Login() {
         try {
             const response = await api.post('auth/signin', data);
 
-            localStorage.setItem('username', username);
-            localStorage.setItem('accessToken', response.data.token);
-
+            localStorage.setItem('username', response.data.username);
+            localStorage.setItem('accessToken', response.data.accessToken);
+/*
+            console.log(response.data.username)
+            console.log(response.data.authenticated)
+            console.log(response.data.created)
+            console.log(response.data.expiration)
+            console.log(response.data.accessToken)
+            console.log(response.data.refreshToken)
+*/
             history.push('/books')
         } catch (err) {
             alert('Login failed! Try again!');
