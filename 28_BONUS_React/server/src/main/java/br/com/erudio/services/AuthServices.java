@@ -17,7 +17,7 @@ import br.com.erudio.security.jwt.JwtTokenProvider;
 public class AuthServices {
 
 	@Autowired
-	private AuthenticationManager authenticationManager;
+	private AuthenticationManager authenticationManager; 
 
 	@Autowired
 	private JwtTokenProvider tokenProvider;
@@ -45,7 +45,7 @@ public class AuthServices {
 		} catch (Exception e) {
 			throw new BadCredentialsException("Invalid username/password supplied!");
 		}
-	}
+	} 
 
 	@SuppressWarnings("rawtypes")
 	public ResponseEntity refreshToken(String username, String refreshToken) {

@@ -27,14 +27,6 @@ export default function Login() {
 
             localStorage.setItem('username', response.data.username);
             localStorage.setItem('accessToken', response.data.accessToken);
-/*
-            console.log(response.data.username)
-            console.log(response.data.authenticated)
-            console.log(response.data.created)
-            console.log(response.data.expiration)
-            console.log(response.data.accessToken)
-            console.log(response.data.refreshToken)
-*/
             navigate('/books')
         } catch (err) {
             alert('Login failed! Try again!');

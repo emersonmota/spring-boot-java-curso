@@ -9,6 +9,16 @@
             "projectName": "rest-with-spring-boot-and-java-erudio",
             "args": "",
             "envFile": "${workspaceFolder}/.env"
+        },
+        {
+            "type": "java",
+            "name": "Spring Boot-Startup<rest-with-spring-boot-erudio>",
+            "request": "launch",
+            "cwd": "${workspaceFolder}",
+            "mainClass": "br.com.erudio.Startup",
+            "projectName": "rest-with-spring-boot-erudio",
+            "args": "",
+            "envFile": "${workspaceFolder}/.env"
         }
     ]
 }

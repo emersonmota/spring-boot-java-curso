@@ -15,7 +15,7 @@ import br.com.erudio.config.FileStorageConfig;
 import br.com.erudio.exceptions.FileStorageException;
 import br.com.erudio.exceptions.MyFileNotFoundException;
 
-@Service
+@Service 
 public class FileStorageService {
 
 	private final Path fileStorageLocation;

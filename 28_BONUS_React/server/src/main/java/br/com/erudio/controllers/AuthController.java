@@ -16,13 +16,13 @@ import br.com.erudio.services.AuthServices;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
 
-@Tag(name = "Authentication Endpoint")
+@Tag(name = "Authentication Endpoint") 
 @RestController
 @RequestMapping("/auth")
 public class AuthController {
 
 	@Autowired
-	AuthServices authServices;
+	AuthServices authServices; 
 
 	@SuppressWarnings("rawtypes")
 	@Operation(summary = "Authenticates a user and returns a token")
